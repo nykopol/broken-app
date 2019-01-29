@@ -13,6 +13,14 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+
+        $newEntity = new \AppBundle\Entity\MyEntity();
+        $newEntity->setName("test");
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($newEntity);
+        $em->flush();
+
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,

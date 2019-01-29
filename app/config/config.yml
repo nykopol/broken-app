@@ -54,9 +54,22 @@ doctrine:
         #path: '%database_path%'
 
     orm:
-        auto_generate_proxy_classes: '%kernel.debug%'
-        naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: true
+        auto_generate_proxy_classes: "%kernel.debug%"
+        entity_managers:
+            default:
+                auto_mapping: true
+                naming_strategy: doctrine.orm.naming_strategy.underscore
+                metadata_cache_driver: apcu
+#                dql:
+#                    datetime_functions:
+#                        age: Roho\DoctrineExtensionsBundle\ORM\Query\AST\Functions\Age
+#                        date_part: Roho\DoctrineExtensionsBundle\ORM\Query\AST\Functions\DatePart
+#                        date: Roho\DoctrineExtensionsBundle\ORM\Query\AST\Functions\Date
+#                    string_functions:
+#                        cast: Roho\DoctrineExtensionsBundle\ORM\Query\AST\Functions\Cast
+#                        unaccent: AppBundle\Doctrine\DQL\UnaccentString
+#                        format_phone_number: LocatifBundle\DoctrineFunctions\FormatPhoneNumberFunction
+
 
 # Swiftmailer Configuration
 swiftmailer:
